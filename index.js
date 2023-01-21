@@ -4,7 +4,7 @@ const cors = require( 'cors')
 const bible = require( './models/bible')
 const path = require("path")
 require("dotenv").config()
-const PORT = process.env.PORT || 5000
+const PORT = 8000
 const app = express()
 app.use(cors());
 app.use(express.json())
