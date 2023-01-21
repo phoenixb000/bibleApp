@@ -8,9 +8,9 @@ const PORT = 8000
 const app = express()
 app.use(cors());
 app.use(express.json())
-
+const DB = "mongodb+srv://bible:bibleapp@cluster0.9wj99pn.mongodb.net/bibleApp?retryWrites=true&w=majority"
 mongoose.set('strictQuery', false);
-mongoose.connect(process.env.DB).then(() => app.listen(PORT)).catch(err => console.log(err))
+mongoose.connect(DB).then(() => app.listen(PORT)).catch(err => console.log(err))
 
 app.get('/api/:book', async (req, res) => { 
     const name = req.params.book.toLowerCase().trim()
