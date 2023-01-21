@@ -18,19 +18,19 @@ app.get('/api/:book', async (req, res) => {
     let data = []
     try {
         if (name == "bible")
-            data = await bible.find()
+            data = await bible.find().sort("book_no")
         if (name == "old testement")
-            data = await bible.find({book_no: { $lte: 39 }})
+            data = await bible.find({book_no: { $lte: 39 }}).sort("book_no")
         if (name == "new testement")
-            data = await bible.find({book_no: { $gte: 40 }})
+            data = await bible.find({book_no: { $gte: 40 }}).sort("book_no")
         if(data.length == 0)
-            data = await bible.find({book_name : { $regex: "^"+name+"$", '$options' : 'i' } })
+            data = await bible.find({book_name : { $regex: "^"+name+"$", '$options' : 'i' } }).sort("book_no")
         if (data.length == 0)
-            data = await bible.find({aurthor : { $regex: "^"+name+"$", '$options' : 'i' } })
+            data = await bible.find({aurthor : { $regex: "^"+name+"$", '$options' : 'i' } }).sort("book_no")
         if(data.length == 0)
-            data = await bible.find({themes : { $regex: "^"+name+"$", '$options' : 'i' } })
+            data = await bible.find({themes : { $regex: "^"+name+"$", '$options' : 'i' } }).sort("book_no")
         if (data.length == 0)
-           data = await bible.find({ministry : { $regex: "^"+name+"$", '$options' : 'i' } })
+           data = await bible.find({ministry : { $regex: "^"+name+"$", '$options' : 'i' } }).sort("book_no")
     } catch (error) {
        console.log("ERROR"); 
     }
