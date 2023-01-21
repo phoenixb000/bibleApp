@@ -7,7 +7,7 @@ const app = express()
 app.use(cors());
 app.use(express.json())
 
-const PORT = 8000
+const PORT = 5000
 const DB = "mongodb+srv://bible:bibleapp@cluster0.9wj99pn.mongodb.net/bibleApp?retryWrites=true&w=majority"
 
 mongoose.set('strictQuery', false);
